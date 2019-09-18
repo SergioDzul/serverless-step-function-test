@@ -1,0 +1,32 @@
+# dependencies
+node_modules
+
+#environment
+.env
+
+# docs
+docs/
+
+
+# log files
+.log
+.out
+
+# system files
+.DS_Store
+.vs
+.vscode
+.dynamodb
+
+#serverless
+.serverless
+
+#newman
+newman/
+
+#IntelliJ files
+.idea/
+
+*.local
+
+env.yml

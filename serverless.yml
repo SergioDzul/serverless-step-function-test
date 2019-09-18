@@ -1,0 +1,40 @@
+service: 'aws-step-functions'
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: ${opt:stage, 'dev'}
+  timeout: 8
+  region: 'us-east-1'
+  versionFunctions: ${opt:versionFunctions, 'false'}
+  apiGateway:
+    apiKeySourceType: HEADER
+  tracing:
+    lambda: true
+
+  environment:
+    apiName: ${self:service}
+    STATE_MACHINE_ARN: ${file(env.yml):STATE_MACHINE_ARN}
+
+
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "states:StartExecution"
+      Resource: ${self:provider.environment.STATE_MACHINE_ARN}
+
+functions:
+  hello:
+    handler: src/handler.hello
+    events:
+      - http:
+          path: hello
+          method: get
+          cors: true
+  init:
+    handler: src/handler.init
+    events:
+      - http:
+          path: init
+          method: get
+          cors: true
