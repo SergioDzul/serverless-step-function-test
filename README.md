@@ -5,7 +5,7 @@ Fist you need to create a env file named env.yml in root path
 ```
 $ touch env.yml
 ```
-Video Tutorial: <iframe width="560" height="315" src="https://www.youtube.com/embed/9MKL5Jr2zZ4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Video Tutorial: [YouTube Video](https://youtu.be/9MKL5Jr2zZ4)
 
 Create a Step function machine in your AWS web console and put the ARN in the env.yml
 
